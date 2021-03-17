@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#define STR 100
+	
+	void troca(char *str, char *str_)
+	{
+	  char temp[STR]; 
+	  strcpy (temp, str);
+	  strcpy (str, str_);
+	  strcpy (str_, temp);
+	}
+	
+	main (void)
+	{
+	  char palavra1[STR], palavra2[STR];
+	  setlocale(LC_ALL,"Portuguese");
+	  printf("Digite a primeira string: ");
+	  gets(palavra1);
+	  printf("\nDigite a segunda string: ");
+	  gets(palavra2);
+	  troca(palavra1, palavra2);
+	  printf("\nA primeira string agora é: %s", palavra1);
+	  printf("\n");
+	  printf("\nA segunda string agora é: %s", palavra2);
+	}

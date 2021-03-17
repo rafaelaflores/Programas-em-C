@@ -1,0 +1,82 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int time, rj=0, nit=0, cid;
+	int flu=0, bota=0, vas=0, fla=0, out=0;
+	float salario, soma=0, media=0;
+	
+	do{
+		printf("\nQual seu time do coração?\n");
+		printf("\nDigite 1 para FLUMINENSE, 2 para BOTAFOGO, 3 para VASCO, 4 para FLAMENGO, 5 para OUTROS e 0 para SAIR: ");
+		scanf(" %d",&time);		
+	
+		if(time>5)
+		{
+			printf("\n\nPrograma Encerrado\n\n");
+			break;
+		}
+		else if(time!=0){
+			
+		printf("\nDigite o seu salário: ");
+		scanf(" %f",&salario);
+
+		if(time==1)
+		{
+			flu++;
+		}
+		
+		else if(time==2)
+		{
+			bota++;
+			soma=soma+salario;
+		}
+			
+		else if(time==3)
+		{
+			vas++;
+		}
+		
+		else if(time==4)
+		{
+			fla++;
+		}
+		
+		else
+		{
+			out++;
+		}
+		printf("\nQual sua cidade?\n");
+		printf("Se RIO DE JANEIRO digite 1, se NITERÓI digite 2 e se OUTROS digite 3: ");
+		scanf("%d",&cid);
+		
+		if(cid==1 && time==5){
+			rj++;
+		}
+		if(cid==2 && time==1){
+			nit++;
+		}
+		printf("\n\n");
+	
+	}
+	
+
+	
+	}while(time!=0);
+	
+	media=soma/bota;
+	printf("\n\n");
+	printf("Torcedores do Fluminense são %d\n",flu);
+	printf("Torcedores do Botafogo são %d\n",bota);
+	printf("Torcedores do Vasco são %d\n",vas);
+	printf("Torcedores do Flamengo são %d\n",fla);
+	printf("Torcedores de Outros Times são %d\n",out);
+	printf("No Rio de Janeiro há %d torcedores que torcem para outros times.\n",rj);
+	printf("Em Niterói há %d torcedores que torcem para o Fluminense.\n",nit);
+	printf("Média salarial dos torcedores do Botafogo: %.2f\n",media);
+
+
+		system("pause");
+		return 0; 
+}

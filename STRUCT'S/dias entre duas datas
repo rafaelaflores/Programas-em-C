@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <locale.h>
+struct data {
+    int dia, mes, ano;
+}; 
+int dia_mes (int mesaux,int anoaux) {
+    int dias=30;
+    if(mesaux==2){
+        if((anoaux%4==0) && (anoaux%100!=0) || (anoaux%400==0)) {
+            dias=29;
+        } 
+		else {
+            dias=28;      
+        }
+    }
+	else {
+        switch(mesaux) {  
+            case 12: 
+            case 10:
+            case 8:
+            case 7:
+            case 5:
+            case 3:
+            case 1:
+            dias=31; 
+            break;     
+        }
+    }  
+    return dias;
+} 
+
+int estrutura (struct data data1, struct data data2) {
+    struct data data3;
+    int cont_dias=0, diasmes;
+    data3=data1;
+    do {
+        diasmes=dia_mes(data3.mes, data3.ano);
+        if(data3.dia>diasmes) {
+            data3.dia=1;
+            data3.mes++;            
+		if(data3.mes>12) {
+                data3.mes=1;
+                data3.ano++;
+            }
+        }
+        if(data3.dia==data2.dia && data3.mes==data2.mes && data3.ano==data2.ano) {
+            break;
+        }
+        cont_dias++;
+        data3.dia++;
+    } while (1==1);
+    printf("\n---------------------------------------------------");
+	printf("\n");
+    printf("\nO total de dias entre as duas datas é %d!\n",cont_dias);
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Portuguese");
+    struct data data1, data2;
+    int condicao=0, anos;
+    int mes2[2], ano2[2];
+    int anoum, anodois;
+    int diames, diaum, mesum, totaldias;
+    printf("\n---------------------------------------------------");
+	printf("\n");
+    printf("\nDigite o dia da primeira data: ");
+    scanf("%d",&data1.dia);
+    printf("\nDigite o mês da primeira data: ");
+    scanf("%d",&data1.mes);
+    printf("\nDigite o ano da primeira data: ");
+    scanf("%d",&data1.ano);
+    
+    do {
+    if (condicao==1) 
+	{
+            printf("\n\nA segunda data deve ser maior que a primeira.\n\n");
+            condicao--;      
+    }
+    printf("\n---------------------------------------------------");
+	printf("\n");
+        printf("\nDigite o dia da segunda data: ");
+        scanf("%d",&data2.dia);
+        printf("\nDigite o mês da segunda data: ");
+        scanf("%d",&data2.mes);
+        printf("\nDigite o ano da segunda data: ");
+        scanf("%d",&data2.ano);        
+    if ((data1.ano>data2.ano) || (data1.ano==data2.ano && data1.mes>data2.mes) || (data1.ano==data2.ano && data1.mes==data2.mes && data1.dia>data2.dia))
+	{
+        condicao++;
+    }
+        
+    } while (condicao==1);
+    estrutura(data1, data2);
+    return 0;
+}

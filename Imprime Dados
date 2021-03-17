@@ -1,0 +1,25 @@
+//Crie um programa que leia o nome, idade e salário de uma pessoa e logo após mostre na tela os 3 valores na mesma linha, no formato “Nome: …, Idade: …,Salário: ...”
+//Antes, informe ao usuário que ele precisará digitar essas 3 informações
+//A idade deve ser mostrada com pelo menos 2 dígitos, completados com zeros
+//O salário deve ser mostrado com 2 casas decimais e pelo menos 1 dígito à esquerda completado com zero 
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <conio.h>
+
+int main()
+{
+	setlocale(LC_ALL, "Portuguese");
+	int idade;
+	float salario;
+	char nome[20];
+	printf("Você informará seu nome, idade e salário!");
+	printf("\nDigite seu nome: ");
+	gets(nome);
+	printf("\nDigite sua idade: ");
+	scanf("%d",&idade);
+	printf("\nDigite seu salário: ");
+	scanf("%f",&salario);
+	printf("\nNome: %s \nIdade: %.2d \nSalário: R$ %1.2f",nome, idade, salario);
+	return 0;
+}

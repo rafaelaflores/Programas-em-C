@@ -1,0 +1,38 @@
+/* Crie um programa em linguagem C que permita entrar com o nome, a nota da
+prova 1 e da prova 2 de 15 alunos. Ao final, imprimir uma listagem, contendo:
+nome, nota da prova 1, nota da prova 2, e média das notas de cada aluno. Ao
+final, imprimir a média geral da turma.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int prova1[15], prova2[15], total1[15], total2, media1[15], media2;
+	char nome[15][15];
+	int x;
+	
+	for(x=1; x<=3; x++)
+	{
+	printf("\nDigite seu nome: ");
+	scanf("%s",nome[x]);
+	printf("\nDigite sua nota 1: ");
+	scanf("%d",&prova1[x]);
+	
+	printf("\nDigite sua nota 2: ");
+	scanf("%d",&prova2[x]);
+	
+	total1[x]=prova1[x]+prova2[x];
+	media1[x]=total1[x]/2;
+	media2=media2+media1[x];
+	}
+	for(x=1; x<=3; x++)
+	{
+		printf("\n\n%s, sua nota 1 é ", nome[x]);
+		printf("%d e sua nota 2 é ", prova1[x]);
+		printf("%d! ", prova2[x]);
+		printf("Sua média é de %d.", media1[x]);
+	}
+
+	printf("\n\nA média final da turma é %d.",media2/3);
+	return 0;
+	}

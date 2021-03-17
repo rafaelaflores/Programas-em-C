@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+#include <locale.h>
+	char* troca(char string[], char ch1, char ch2, int tam, int x)
+	{ 
+	for (x=0;x<tam;x++){
+	        if (string[x]==ch1){
+	            string[x]=ch2;
+	        }
+	    }
+	    return string;
+	}
+		
+	int main()
+	{
+	    char string[100];
+	    char ch1;
+	    char ch2;
+	    int x, tam;
+	    setlocale(LC_ALL,"Portuguese");
+	    printf ("Digite uma palavra: ");
+	    gets(string);
+	    printf ("\nDigite alguma letra que exista na palavra acima: ");
+	    scanf ("%c", &ch1);
+	    printf ("\nDigite algum caractere para substituir a letra escolhida: ");
+	    scanf (" %c", &ch2);
+	    tam=strlen(string);
+	    printf("\nTotal de letras da palavra: %d",tam);
+	    printf ("\nA nova palavra é: %s", troca( string, ch1, ch2, tam, x));
+	    return 0;
+	}

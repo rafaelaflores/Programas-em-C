@@ -1,0 +1,22 @@
+/*Faça um programa que leia um número inteiro N e depois imprima os N primeiros números naturais ímpares.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int x=0, n, impar=1;
+	printf("Digite o número n, não negativo: ");
+	scanf("%d", &n);
+	printf("Os %d primeiros números naturais ímpares são: ",n);
+	 while (x < n){
+	 	
+	 		printf("%d ", impar);
+	 		impar = impar + 2;
+	 		x++;
+	 		
+	 		
+		 }
+		 
+	
+	return 0;
+	}

@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+	
+	int main()
+	{
+		setlocale(LC_ALL, "Portuguese");
+		int x, y;
+		printf("Digite um valor inteiro: ");
+		scanf("%d",&x);
+		printf("\nDigite outro valor inteiro: ");
+		scanf("%d",&y);
+		
+		if(x==y)
+		{
+			printf("\nOs valores são iguais.\n");
+		
+		}
+		else if(x>y)
+		{
+			printf("\nO valor %d é maior.\n",x);
+		}
+		else
+		{
+			printf("\nO valor %d é maior.\n",y);
+		}
+		system("pause");
+		return 0;
+	}

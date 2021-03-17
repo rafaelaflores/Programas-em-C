@@ -1,0 +1,25 @@
+//Faça um programa que leia um número inteiro e verifique se esse número é par ou ímpar.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+	
+	int main()
+	{
+		setlocale(LC_ALL, "Portuguese");
+		int x;
+		
+		printf("Digite um valor inteiro: ");
+		scanf("%d",&x);
+		
+		if(x % 2 == 1)
+		{
+			printf("\nO valor %d é ímpar.\n",x);
+		}
+		else
+		{
+			printf("\nO valor %d é par.\n",x);
+		}
+		system("pause");
+		return 0;
+	}

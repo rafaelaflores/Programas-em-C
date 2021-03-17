@@ -1,0 +1,48 @@
+#include <conio.h>
+ #include <stdio.h>
+ #include <string.h>
+ #include <locale.h>
+ int main () {
+	setlocale(LC_ALL, "Portuguese");
+	int i, j;
+	char delegacao[5][10];
+	char nome[5][10][50];
+	float altura[5][10], altmaior;
+	
+	for (i=0; i<5; i++)
+	{
+		printf("OLÁ ATLETAS!\n");
+		fflush(stdin);
+		printf("\nQual o nome da sua delegação? ");
+		gets(delegacao[i]);
+		for (j=0 ; j<10; j++) 
+		{
+			fflush(stdin);
+			printf("\nQual seu nome? ");
+			gets(nome[i][j]);
+			printf("\nQual sua altura? ");
+			scanf("%f", &altura[i][j]);
+		}
+		
+		printf("\n__________________________________________________\n");
+	}
+	
+	for(i=0; i<5; i++)
+	{
+		printf("\n\nDelegação %s", delegacao[i]);
+		altmaior=0;
+		for (j=0; j<10; j++) 
+		{
+			if(altura[i][j] > altmaior) 
+			{
+				altmaior=altura[i][j];
+			}
+			printf("%s: %.2f \n",nome[i][j], altura[i][j]);
+		}
+		
+		printf("--> Maior altura: %.2f", altmaior);
+	}	
+	
+	getch();
+	return 0;
+}

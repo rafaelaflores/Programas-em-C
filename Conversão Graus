@@ -1,0 +1,25 @@
+// Fazer um programa em "C" que pergunte um valor em graus Fahrenheit e imprime no vídeo o correspondente em graus Celsius usando as fórmulas que seguem.
+// Usar uma variável double para ler o valor em Fahrenheit e a fórmula C=(f-32.0)*(5.0/9.0).
+// Usar uma variável int para ler o valor em Fahrenheit e a fórmula C=(f-32)*(5/9).
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+	int main()
+	{
+		setlocale(LC_ALL, "Portuguese");
+		double f, C;
+		int Fr, C1;
+		printf("Quantos graus está fazendo em Fahrenheint? ");
+		scanf("%lf",&f);
+		printf("Digite novamente, quantos graus está fazendo em Fahrenheint? ");
+		scanf("%d",&Fr);
+		
+		C=((f-32.0)*5.0)/9.0;
+		C1=((Fr-32)*5)/9;
+		
+		printf("\nOs graus Fahrenheint são equivalentes a %.2lf°C (em valor double)",C);
+		printf("\nOs graus Fahrenheint são equivalentes a %d°C (em valor inteiro)",C1);
+		return 0;
+	
+	}

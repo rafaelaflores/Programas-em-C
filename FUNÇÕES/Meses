@@ -1,0 +1,77 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+ int dias(int mes, int ano);
+ main()
+ {
+  int mes, ano;
+  setlocale(LC_ALL,"Portuguese");
+  printf("Digite o mês : ");
+  scanf("%d",&mes);
+  printf("Digite o ano : ");   
+  scanf("%d",&ano);
+  printf("\nO número de dias do mês %d é %d!", mes, dias(mes,ano));  
+  printf("\n\n");  
+  system("pause");   
+ }
+int dias(int mes, int ano)
+ {
+   int x;
+   switch (mes)
+   {
+     case 1 :
+       x = 31;
+       break;
+       
+     case 2 :
+       if (((ano % 4 == 0)&&(ano % 100 != 0)) || (ano % 400 == 0))
+		{   
+	        printf("\nEste é um ano bissexto!\n");
+	        x = 29;
+    	}
+       else
+    	{
+        	x = 28;   
+    	}
+       break;
+       
+     case 3 :
+       x = 31;
+       break;
+       
+     case 4 :
+       x = 30;
+       break;
+       
+     case 5 :
+       x = 31;
+       break;
+       
+     case 6 :
+       x = 30;
+       break;
+     case 7 :
+       x = 31;
+       break;
+       
+     case 8 :
+       x = 31;
+       break;
+       
+     case 9 :
+       x = 30;
+       break;
+       
+     case 10 :
+       x = 31;
+       break;
+     case 11 :
+       x = 30;
+       break;
+       
+     case 12 :
+       x = 31;
+       break;                                
+   } 
+   return x; 
+}

@@ -1,0 +1,38 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+ #define mes 12
+ #define semana 4
+ int main(int argc, char *argv[]) {
+	setlocale(LC_ALL, "Portuguese");
+	int vendas[mes][semana];
+	int totalano=0, soma=0, i=0, j=0;
+	
+	for(i=0; i<mes; i++)
+	{
+		printf("****************************");
+		printf("\n%dº MÊS\n",(i + 1));
+		for(j=0; j<semana; j++)
+		{
+		    printf("\nValores vendidos na semana %d do mês %d: ",(j+1),(i+1));
+		    scanf("%d",&vendas[i][j]);
+		}
+	}
+	for(i=0; i<mes; i++)
+	{
+		printf("****************************");
+	    for(j=0; j<semana; j++)
+	    {
+	    	printf("\nVendas da semana %d do mês %d: %d\n",j+1,i+1,vendas[i][j]);
+			soma+=vendas[i][j];
+	    }
+	printf("\nValores vendidos no mês %d é de: %d\n",i+1,soma);
+	totalano= totalano+soma;
+	soma=0;
+	}
+		printf("\nO total vendido no ano inteiro foi: ");
+		printf("%d", totalano);
+		printf("\n\n");
+		return 0;
+	}
+

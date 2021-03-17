@@ -1,0 +1,99 @@
+ #include <stdio.h>
+ #include <string.h>
+ #include <locale.h>
+ #include <stdlib.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	char palavra[20], forca[20];
+	char chute;
+	int i, cont, x, vidas=5, acertos=0, encontradas=0;
+	
+	do{
+		system("cls");
+		printf("\n           JOGO DA FORCA\n");
+		printf("____________________________________________");
+	
+		vidas=5;
+		fflush(stdin);
+		
+		printf("\n\nJogador 1, digite a palavra: ");
+		gets(palavra);
+		cont=strlen(palavra);
+		
+		system("cls");
+		printf("\n           JOGO DA FORCA\n");
+		printf("____________________________________________");
+		printf("\n\nO número de letras é: %d",cont);
+	
+		for(i=0;i<20;i++)
+		{
+			forca[i]='_';
+		}
+	
+	printf("\n");
+	
+	do
+	{
+		fflush(stdin);
+		printf("\n\nJogador 2, chute uma letra: ");
+		scanf("%c", &chute);
+		acertos=0;
+	 	printf("\n");
+	 	
+	for(i=0;i<cont;i++)
+	{
+		if(chute==palavra[i])
+		{
+			forca[i]=chute;
+			acertos=1;
+		}
+	}
+	
+	if(acertos==0)
+		{
+			vidas--;
+		}
+		
+	fflush(stdin);
+	
+	for(i=0;i<cont;i++)
+	{
+		printf(" %c ", forca[i]);
+	}
+	
+	printf("\n");
+	
+	for(i=0;i<cont;i++)
+	{
+		if(palavra[i]==forca[i])
+		{
+			encontradas++;
+		}
+	}
+	
+	if(encontradas==cont)
+	{
+		vidas=0;
+	}
+	else
+	{
+		encontradas=0;
+	}
+	
+	} while(vidas>0);
+	
+	if(encontradas<cont)
+	{
+		printf("\n\nO Jogador 1 é o vencedor!");
+	}
+	else
+	{
+		printf("\n\nO Jogador 2 é o vencedor!");
+	}
+
+	printf("\n\nJogadores, desejam jogar novamente?");
+	printf("\nDigite 0 para NÃO ou 1 para SIM: ");
+	scanf("%d",&x);
+	} while(x==1);
+
+ }

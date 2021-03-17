@@ -1,0 +1,46 @@
+/*Faça um programa em C que leia dois conjuntos de números inteiros, tendo cada
+um 10 elementos. Ao final o programa deve listar os elementos comuns aos
+conjuntos.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int vet1[10],vet2[10], vet3[10];
+	int x,y,z;
+	
+	for(x=1; x<=10; x++)
+	{
+		printf("Digite o %d° número do 1° conjunto: ",x);
+		scanf("%d",&vet1[x]);
+		printf("Digite o %d° número do 2° conjunto: ",x);
+		scanf("%d",&vet2[x]);
+		printf("\n");
+	}
+	
+	printf("\n\n");
+	
+	vet3[z]==0;
+	
+	for(x=1; x<=10; x++)
+	{
+		for(y=1; y<=10; y++)
+		{
+			if(vet1[x]==vet2[y] && vet1[x]!=vet3[z])
+			{
+				vet3[z]=vet1[x];
+				z++;
+			}
+		}
+	}
+	printf("\nNúmeros comuns aos dois conjuntos: ");
+	for (x=0 ; x<z; x++)
+	{
+	printf("%d ",vet3[x]);
+	}
+
+	
+	printf("\n\n");
+	
+		return 0; 
+}

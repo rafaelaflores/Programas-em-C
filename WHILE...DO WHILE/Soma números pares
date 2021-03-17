@@ -1,0 +1,19 @@
+/*Faça um programa que calcule e mostre a soma dos 50 primeiros números pares.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int x=0, par=0, soma;
+
+	 while (x < 50){
+	 	
+	 		par = par + 2;
+	 		soma=soma+par;
+			x++;
+		 }
+		 printf("A soma dos 50 primeiros números pares é igual a %d",soma);
+		 
+	
+	return 0;
+	}

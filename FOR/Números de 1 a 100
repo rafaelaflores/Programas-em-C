@@ -1,0 +1,13 @@
+/*Faça um programa em C que imprima todos os números de 1 até 100*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int x;
+	for(x=1;x<=100;x++)
+	{
+		printf("%d ",x);
+	}
+	return 0;
+}

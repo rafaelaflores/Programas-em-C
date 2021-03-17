@@ -1,0 +1,39 @@
+//Faça um programa que verifique se um número é primo por meio de uma função. Ao final imprima o resultado.
+#include <stdio.h>
+#include <locale.h>
+void primo(int valor);
+int ehprimo(int qnt, int x, int divisor);
+	int main() {
+		setlocale(LC_ALL,"Portuguese");
+	    int num;
+	    printf("Digite um número inteiro positivo: ");
+	    scanf("%d", &num);
+		primo(num);
+	    return 0;
+	}
+	
+	void primo(int valor) {
+		printf("\n");
+	    if(ehprimo(0, valor, 2)) {
+	        printf("O número digitado é primo!\n");
+	    }
+	    else {
+	        printf("O número digitado não é primo!\n");
+	    }
+	}
+	
+	int ehprimo(int qtd, int x, int divisor) {
+	    int aux = qtd;
+	    if(qtd > 0) {
+	        return 0;
+	    }
+	    if(divisor > (x/2) && qtd == 0) {
+	        return 1;
+	    }
+	
+	    if(x % divisor == 0) {
+	        aux++;
+	    }
+	    
+	    return ehprimo(aux, x, divisor+1);
+	}

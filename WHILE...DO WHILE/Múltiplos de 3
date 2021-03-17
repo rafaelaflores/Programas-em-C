@@ -1,0 +1,21 @@
+/*Faça um programa que determine e mostre os cinco primeiros múltiplos de 3 considerando números maiores que 0.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int x=0, multi=0;
+	
+	printf("Os primeiros cinco multiplos de 3 são: ");
+
+	 while (x <= 5){
+	 	multi = multi + 3;
+	 	printf("%d ", multi);
+	 	x++;
+	 		
+	 		
+		 }
+		 
+	
+	return 0;
+	}

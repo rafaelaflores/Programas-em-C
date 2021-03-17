@@ -1,0 +1,18 @@
+//Faça um programa que leia o saldo e o % de reajuste de uma aplicação financeira e imprimir o novo saldo após o reajuste. O cálculo deve ser feito por uma função.
+#include <stdio.h>
+#include <locale.h>
+int newreajuste(float num, float reajuste);
+	 main() {
+		setlocale(LC_ALL,"Portuguese");
+	    float num, reajuste, newsalario = 0;
+	    printf("Digite seu salário atual: ");
+	    scanf("%f", &num);
+		printf("\nDigite o percentual do reajuste: ");
+	    scanf("%f", &reajuste);
+	    newsalario=newreajuste(num, reajuste);
+	    printf("\nSeu novo salário é: %.2f reais!",newsalario);
+	}
+	
+	int newreajuste(float num, float reajuste) {
+	    return num + (num * (reajuste / 100));
+	}

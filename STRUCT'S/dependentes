@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+#define AUX 37
+ struct estrutura_nasc {
+	int dia;
+	int mes;
+	int ano;
+ }; 
+ struct estrutura_dados {
+ 	char nome[20];
+ 	float mensalidade;
+ 	int dependentes;
+	struct estrutura_nasc nascimento;
+ };
+ int main () {
+ 	struct estrutura_dados associado[AUX];
+ 	setlocale(LC_ALL, "Portuguese");
+ 	int x, maior=0, aux;
+ 	for(x=0; x<AUX; x++)
+ 	{
+ 		printf("\n---------------------------------------------------");
+	 	printf("\n");
+	 	printf("Associado número %d!\n",x+1);
+	 	printf("\nDigite seu nome:  ");
+	 	fflush(stdin);
+	 	gets(associado[x].nome);
+	 	printf("\n---------------------------------------------------");
+	 	printf("\n");
+	 	printf("\nQue dia você nasceu?  ");
+	 	scanf("%d",&associado[x].nascimento.dia);
+	 	printf("\nQual mês você nasceu?  ");
+	 	scanf("%d",&associado[x].nascimento.mes);
+	 	printf("\nEm que ano você nasceu?  ");
+	 	scanf("%d",&associado[x].nascimento.ano);
+	 	printf("\n---------------------------------------------------");
+	 	printf("\n");
+	 	printf("\nInforme o valor da mensalidade:  ");
+	 	scanf("%f",&associado[x].mensalidade);
+	 	printf("\nDigite a quantidade de dependentes:  ");
+	 	scanf("%d",&associado[x].dependentes);
+	 	printf("\n---------------------------------------------------");
+	 	if(associado[x].dependentes > maior) {
+	 		maior = associado[x].dependentes;
+	 		aux = x;
+		 }
+		system("cls");
+	}
+	for(x=0; x<AUX; x++)
+ 	{
+		printf("\n---------------------------------------------------");
+		printf("\n");
+		printf("Associado número %d!\n",x+1);
+		printf("\nNome: %s",associado[x].nome);
+		printf("\nDia do nascimento: %d",associado[x].nascimento.dia);
+		printf("\nMês do nascimento: %d",associado[x].nascimento.mes);
+		printf("\nAno do nascimento: %d",associado[x].nascimento.ano);
+		printf("\nValor da mensalidade: R$ %.1f",associado[x].mensalidade);
+		printf("\nNúmero de dependentes: %d",associado[x].dependentes);
+	}
+	printf("\n");
+	printf("\n---------------------------------------------------");
+	printf("\nO associado %s possui o maior número de dependentes, é igual a %d!",associado[aux].nome,associado[aux].dependentes);
+ }

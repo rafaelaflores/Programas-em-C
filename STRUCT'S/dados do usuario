@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+ struct estrutura{
+	char endereco[50];
+	char nome[20];
+	int idade;
+}; 
+ 
+ int main () {
+ 	struct estrutura dados;
+ 	setlocale(LC_ALL, "Portuguese");
+ 	printf("Digite seu nome: ");
+ 	fflush(stdin);
+ 	gets(dados.nome);
+ 	printf("\nQual é a sua idade? ");
+ 	scanf("%d",&dados.idade);
+ 	printf("\nInforme seu endereço: ");
+ 	fflush(stdin);
+ 	gets(dados.endereco);
+ 	printf("\n---------------------------------------------------\n");
+ 	printf("\n");
+ 	printf("Usuário(a) %s, você tem %d anos e mora em %s!",dados.nome,dados.idade,dados.endereco);
+ 	printf("\n");
+	return 0;
+ }

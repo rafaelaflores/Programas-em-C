@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <locale.h>
+ int idade_final (int dia_nasc, int mes_nasc, int ano_nasc, int dia_atual, int mes_atual, int ano_atual) {
+ 	int auxidade;
+ 	auxidade = ano_atual - ano_nasc;
+ 	if(mes_nasc > mes_atual) {
+ 		auxidade = auxidade - 1;
+	 }
+	else if (mes_nasc == mes_atual && dia_nasc >= dia_atual) {
+		auxidade = auxidade - 1;
+	}
+	return auxidade;
+ }
+ struct estrutura_maisvelho_maisnovo {
+ 	int velha;
+ 	int nova;
+ 	char nome_velha[20];
+ 	char nome_nova[20];
+ } maisvelho_maisnovo;
+ struct estrutura_nasc {
+	int dia;
+	int mes;
+	int ano;
+ }; 
+ struct estrutura_pessoa {
+ 	char nome[20];
+ 	int idade;
+ 	struct estrutura_nasc nascimento;
+ };
+ int main () {
+ 	struct estrutura_pessoa usuario[6];
+ 	setlocale(LC_ALL, "Portuguese");
+ 	int x, dia1, mes1, ano1;
+ 	printf("\n---------------------------------------------------");
+ 		printf("\nInforme a data ATUAL! ");
+ 		printf("\n\nDia: ");
+ 		scanf("%d",&dia1);
+ 		printf("\nMês: ");
+ 		scanf("%d",&mes1);
+ 		printf("\nAno: ");
+ 		scanf("%d",&ano1);
+ 	for(x=0; x<6; x++)
+ 	{
+ 		printf("\n---------------------------------------------------");
+	 	printf("\n");
+	 	printf("Pessoa número %d!\n",x+1);
+	 	printf("\nDigite seu nome: ");
+	 	fflush(stdin);
+	 	gets(usuario[x].nome);
+	 	printf("\n---------------------------------------------------");
+	 	printf("\n");
+	 	printf("\nQue dia você nasceu?  ");
+	 	scanf("%d",&usuario[x].nascimento.dia);
+	 	printf("\nQual mês você nasceu?  ");
+	 	scanf("%d",&usuario[x].nascimento.mes);
+	 	printf("\nEm que ano você nasceu?  ");
+	 	scanf("%d",&usuario[x].nascimento.ano);
+	 	printf("\n---------------------------------------------------");
+		system("cls");
+		usuario[x].idade = idade_final(usuario[x].nascimento.dia, usuario[x].nascimento.mes, usuario[x].nascimento.ano, dia1, mes1, ano1);
+		if(maisvelho_maisnovo.velha < usuario[x].idade)	{
+			maisvelho_maisnovo.velha = usuario[x].idade;
+			strcpy(maisvelho_maisnovo.nome_velha, usuario[x].nome);
+		}
+		if(x==0) {
+			maisvelho_maisnovo.nova = usuario[x].idade;
+		}
+		else if(maisvelho_maisnovo.nova > usuario[x].idade)
+		{
+			maisvelho_maisnovo.nova = usuario[x].idade;
+			strcpy(maisvelho_maisnovo.nome_nova, usuario[x].nome);
+		}
+	}	
+	printf("\n---------------------------------------------------");
+	printf("\n\nA pessoa mais velha é %s, ele(a) tem %d anos!\n\n",maisvelho_maisnovo.nome_velha,maisvelho_maisnovo.velha);
+	printf("A pessoa mais nova é %s, ele(a) tem %d anos!\n\n",maisvelho_maisnovo.nome_nova,maisvelho_maisnovo.nova);
+
+	
+ }

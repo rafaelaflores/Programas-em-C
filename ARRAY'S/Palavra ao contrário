@@ -1,0 +1,23 @@
+/*Receba uma palavra de 7 letras do usuário e escreva ela ao contrário.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <conio.h>
+ #include <string.h>
+ #include <locale.h>
+ 	int main() {
+ 	setlocale(LC_ALL, "Portuguese");
+	int x,z;
+	char nome[7];
+	
+	printf("Digite uma palavra de até 7 letras: ");
+	gets(nome);
+	z=strlen(nome);
+	
+	printf("\nA palavra ao contrário é: ");
+	for(x=z-1; x>=0; x--)
+	{
+		printf("%c",nome[x]);
+	}
+	
+	return 0;
+	}

@@ -1,0 +1,21 @@
+//Faça um programa que receba três notas, calcule e mostre a média aritmética entre elas.
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+int main()
+{
+setlocale(LC_ALL, "Portuguese");
+float x, y, z;
+float media;
+float soma;
+printf(" Digite a sua primeira nota: ");
+scanf("%f",&x);
+printf("\n Digite a sua segunda nota: ");
+scanf("%f",&y);
+printf("\n Digite a sua terceira nota: ");
+scanf("%f",&z);
+soma=x+y+z;
+media=soma/3;
+printf("\n A média aritmética entre suas notas é %.2f",media);
+return 0;
+}

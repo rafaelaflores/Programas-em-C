@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+ struct estrutura_aluno {
+	char matricula[10];
+	char nome[20];
+	float nota1, nota2, nota3;
+	float aux, media;
+}; 
+ int main () {
+ 	struct estrutura_aluno dados[5];
+ 	setlocale(LC_ALL, "Portuguese");
+ 	int x, maior=0, aluno;
+ 	for(x=0; x<5; x++)
+ 	{
+ 		printf("\nDigite seu nome: ");
+	 	fflush(stdin);
+	 	gets(dados[x].nome);
+	 	printf("\nQual é seu número de matrícula? ");
+		fflush(stdin);
+	 	gets(dados[x].matricula);
+		printf("\nInforme sua 1ª nota: ");
+		fflush(stdin);
+		scanf("%f",&dados[x].nota1);
+		printf("\nInforme sua 2ª nota: ");
+		fflush(stdin);
+		scanf("%f",&dados[x].nota2);
+		printf("\nInforme sua 3ª nota: ");
+		fflush(stdin);
+		scanf("%f",&dados[x].nota3);
+		dados[x].media = (dados[x].nota1+dados[x].nota2+dados[x].nota3)/3;
+		printf("\n%s sua média é %.1f\n",dados[x].nome,dados[x].media);
+		if(dados[x].media > maior)
+		{
+			maior = dados[x].media;
+			aluno = x;
+		}
+	printf("\n---------------------------------------------------\n");
+ 	printf("\n");
+	}
+ 	system("cls");
+ 	printf("\n---------------------------------------------------\n");
+ 	printf("\n");
+ 	printf("Aluno(a) %s, você tem a maior média dentre 5 alunos, ela é igual a %.1f!",dados[aluno].nome,dados[aluno].media);
+ 	printf("\n");
+	return 0;
+}

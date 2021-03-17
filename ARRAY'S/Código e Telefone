@@ -1,0 +1,30 @@
+/*Suponha dois vetores de 30 elementos cada, contendo: código e telefone. Faça um
+programa que permita buscar pelo código e imprimir o telefone.*/
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <locale.h>
+	int main() {
+	setlocale(LC_ALL, "Portuguese");
+	int vet[30],vet1[30];
+	int x, cod;
+	
+	for (x=0; x<5; x++) 
+	{
+		printf("\nDigite o código: ");
+		scanf("%d", &vet[x]);
+		printf("\nDigite o telefone: ");
+		scanf("%d", &vet1[x]);
+	}
+	printf("\n\n");
+	printf("Digite o código para o telefone que procura: ");
+	scanf("%d", &cod);
+	
+	for (x=0; x<5; x++)
+	{
+		if (vet[x] == cod)
+		{
+			printf("\n--> %d\n",vet1[x]);
+		}
+	}
+	return 0; 
+}
